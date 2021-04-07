@@ -2,7 +2,21 @@ let altura
 let largura
 let vidas = 3
 let heart
+let pontos = 0
 let tempo = 10
+/*variável cronometro com função que repete a cada segundo no setInterval, decrementando a variável tempo e atualizando os dados na tela.*/
+let cronometro = setInterval(function() {
+        let timer = document.querySelector('#cronometro')
+        tempo --
+        if(tempo < 0){//se tempo é menor que zero, vence o jogo
+            clearInterval(cronometro)
+            clearInterval(criaMosquitos)
+            window.location.href = 'winner.html'
+        }
+        else{//caso contrário, continua o cronômetro até acabar as vidas ou zerar
+            timer.innerHTML = tempo
+        }
+},1000)//repete a cada segundo
 
 function atualizaDimensaoTela(){
     altura = window.innerHeight
@@ -33,8 +47,9 @@ function criaMosquito(){
         mosquito.id = 'mosquito'
         //mosquito.setAttribute('onclick', 'PontuaMosquito()')
         mosquito.onclick = function(){
-            this.remove()
             PontuaMosquito()
+            this.remove()
+            
         }
         document.body.appendChild(mosquito)
     }
@@ -77,22 +92,18 @@ function gameOver(){
     window.location.href = 'game_over.html'
 }
 
+/* pontua o jogador de acordo com o tamanho do mosquito */
 function PontuaMosquito(){
-    console.log('100 pontos')
-}
-
-function Cronometro(){
-    let timer = document.querySelector('#cronometro')
-    timer.innerHTML = tempo
-    tempo--
-    if(tempo == 0 && vidas == 0){
-        gameOver()
-    }
-    else if(tempo == 0){
-        console.log('Você Venceu')
-    }
+    let mosquito = document.querySelector('#mosquito')
+    console.log(pontos)
+    if(mosquito.className == 'mosquito1')
+        pontos  += 100;
+    else if(mosquito.className == 'mosquito2')
+        pontos += 200;
+    else
+        pontos += 300;
 }
 
 atualizaDimensaoTela()
-let mosquitos = setInterval(criaMosquito, 10000)
-let cronometro = setInterval(Cronometro, 1000)
+let criaMosquitos = setInterval(criaMosquito, 2000)
+// let cronometro = setInterval(Cronometro, 1000)

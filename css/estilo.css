@@ -1,4 +1,4 @@
-html, body, .container, .gameOver.row{
+html, body, .container, .gameOver.row, winner.row{
     height: 100%;
 }
 body{

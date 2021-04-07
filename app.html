@@ -11,17 +11,22 @@
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     </head>
-    <body>
-        <div class="container">
-            <div class="row gameOver">
-                <div class="col d-flex justify-content-center">
-                    <img class="align-self-center" src="imagens/game_over.png" alt="game_over">
-                </div>
-                <div class="col-12 d-flex justify-content-center">
-                    <button type="button" class="btn btn-dark btn-lg h48" onclick="window.location.href = 'index.html'">Reiniciar</button>
-                </div>
+    <body onresize="atualizaDimensaoTela()">
+        
+        <div class="row userUI">
+            <div class="col-12 vidas">
+                <img src="imagens/coracao_cheio.png" id="vida1" alt="vidas1">
+                <img src="imagens/coracao_cheio.png" id="vida2" alt="vidas2">
+                <img src="imagens/coracao_cheio.png" id="vida3" alt="vidas3">
             </div>
-            
+            <div class="col-12">
+                Tempo Restante: <span id="cronometro"></span>
+            </div>
         </div>
+    
+        <script src="js/myScript.js">
+            document.querySelector('#cronometro').innerHTML = tempo
+            
+        </script>
     </body>
 </html>
