@@ -1,3 +1,6 @@
+html{
+    cursor: url(../imagens/mata-mosquito.png)  30 30, auto;
+}
 html, body, .container, .gameOver.row, winner.row{
     height: 100%;
 }
@@ -5,6 +8,8 @@ body{
     background: url(../imagens/bg.jpg) no-repeat;
     background-size: cover;
 }
+
+/*MOSQUITOS*/
 .mosquito1, .mosquito2, .mosquito3, .userUI{
     position: absolute;
 }
@@ -22,6 +27,13 @@ body{
 }
 
 /* USER INTERFACE */
+.btn-rounded{
+    border-radius: 30px;
+}
+
+select.form-control{
+    width: 200px;
+}
 .userUI{
     position: fixed;
     left: 20px;
@@ -33,4 +45,23 @@ body{
 }
 .h48{
     height: 48px;
-} 
+}
+#menu-title-image{
+    width: 200px;
+}
+/*RESPONSIVIDADE*/
+@media(min-width: 576px){
+    #menu-title-image{
+        width: 200px;
+    }
+}
+@media(min-width: 768px){
+    #menu-title-image{
+        width: 200px;
+    }
+}
+@media(min-width: 992px){
+    #menu-title-image{
+        width: 500px;
+    }
+}
